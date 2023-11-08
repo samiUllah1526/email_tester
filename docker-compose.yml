@@ -1,0 +1,15 @@
+services:
+  web:
+    build: ./
+  
+    volumes:
+      - .:/src
+    # env_file: // to read all env variables from .env file
+    #   - ./.env
+    environment:
+      - PORT=${PORT_SAMI} // to read variable from hostshell environment. in host i export the PORT_SAMI variable
+    command: yarn run watch
+    ports:
+    - "8080:8080"
+    - "3000:3000"
+    - "3030:3030"
