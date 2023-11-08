@@ -1,13 +1,13 @@
 services:
   web:
+    image: email_tester:1.0
     build: ./
-  
     volumes:
       - .:/src
-    # env_file: // to read all env variables from .env file
-    #   - ./.env
-    environment:
-      - PORT=${PORT_SAMI} // to read variable from hostshell environment. in host i export the PORT_SAMI variable
+    env_file: # to read all env variables from .env file
+      - ./.env
+    # environment:
+      # - PORT=${PORT_TEST} # to read variable from hostshell environment. in host i export the PORT_TEST variable
     command: yarn run watch
     ports:
     - "8080:8080"
